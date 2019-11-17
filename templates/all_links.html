@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}All links{% endblock %}
+{% block body %}
+<h2>All work</h2>
+<div>
+    <p>Links:</p>
+    <ul>
+        {% if links %}
+        {% for link in links %}
+            <li class="links"><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+        {% endfor %}
+        {% else %}
+            <li class="links">List is empty</li>
+        {% endif %}
+    </ul>
+</div>
+{{ link_target }}
+{% endblock %}
