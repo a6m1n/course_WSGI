@@ -43,6 +43,7 @@ class Shortly(object):
                 Rule('/<short_id>/details', endpoint='short_link_details'),
                 Rule('/<short_id>', endpoint='follow_short_link'),
                 Rule("/all_links", endpoint="list_url"),
+                Rule("/login", endpoint="login")
             ]
         )
 
@@ -116,6 +117,15 @@ class Shortly(object):
             return self.render_template("all_links.html", links=links)
         else:
             return self.render_template("all_links.html", links=[])
+
+    def on_login(self, request):
+        if(request.method == 'POST'):
+            login = request.form['login']
+            pasword = request.form['password']
+            if login == 'admin':
+                if pasword == '123':
+                    return self.render_template("valid_login.html")
+        return self.render_template("login.html")
 
     def error_404(self):
         response = self.render_template("404.html")

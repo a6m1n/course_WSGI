@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<form action="" class='logins' method="post">
+  <div class="loging">	
+    <label for="login">Login:</label><br> 
+  	<input id="login" type="text" name="login"><br>			
+  </div>
+  <div class="pass">
+    <label for="password">Password:</label><br> 
+    <input id="password" type="text" name="password">
+  </div>
+  <div class="button-login">  
+    <input type="submit" value="Login">
+  </div>
+</form>
+{% endblock %}
