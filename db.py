@@ -32,4 +32,4 @@ def get_list_urls(redis):
                 ]
     else:
         print('No links')
-        return 'No links'
+        return []

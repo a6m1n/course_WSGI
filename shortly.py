@@ -73,10 +73,10 @@ class Shortly(object):
     def on_new_url(self, request):
         error = None
         url = ''
-        if(request.method == 'POST'):
+        if request.method == 'POST':
             url = request.form['url']
 
-            if(is_valid_url(url) == False):
+            if is_valid_url(url) == False:
                 error = 'Not valid url'
             else:
                 id = insert_url(self.redis, url)
@@ -113,13 +113,10 @@ class Shortly(object):
 
     def on_list_url(self, request):
         links = get_list_urls(self.redis)
-        if type(links) is list:
-            return self.render_template("all_links.html", links=links)
-        else:
-            return self.render_template("all_links.html", links=[])
+        return self.render_template("all_links.html", links=links)
 
     def on_login(self, request):
-        if(request.method == 'POST'):
+        if request.method == 'POST':
             login = request.form['login']
             pasword = request.form['password']
             if login == 'admin':
