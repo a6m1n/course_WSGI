@@ -15,9 +15,11 @@ gunicorn main:app.wsgi_app
 uwsgi --ini uwsgi.ini
 ```
 
-```links:
-/
-/new_url
-/<short_id>/details
-/all_links
-/login````
+```sh
+links:
+./
+./new_url
+./<short_id>/details
+./all_links
+./login
+````
